@@ -1,6 +1,8 @@
+version: '3.8'
+
 services:
   db:
-    image: mysql:5.7
+    image: mariadb:10.5
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -20,7 +22,8 @@ services:
       - ./backend:/app
     ports:
       - "5001:5000"
-
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:password@db:3306/flask_db
 
   frontend:
     platform: linux/arm64
