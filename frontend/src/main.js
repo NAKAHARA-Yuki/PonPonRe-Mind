@@ -3,7 +3,7 @@ import App from './App.vue'
 import axios from 'axios'
 
 Vue.prototype.$http = axios.create({
-  baseURL: 'http://backend:5000'
+  baseURL: process.env.VUE_APP_API_BASE_URL
 })
 
 new Vue({
